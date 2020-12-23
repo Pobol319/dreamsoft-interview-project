@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: pobol
+      changes:
+        - createTable:
+            tableName: search_history
+            columns:
+              - column:
+                  name: search_history_id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: file_path
+                  type: varchar(250)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: search_word
+                  type: varchar(45)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date
+                  type: timestamp(6)
+                  constraints:
+                    nullable: false

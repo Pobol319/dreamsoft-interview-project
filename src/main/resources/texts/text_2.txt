@@ -1,0 +1,5 @@
+cURL is a command-line utility for transferring data from or to a remote server using one of the supported protocols. It is installed by default on macOS and most Linux distributions.
+
+cURL is used by developers for testing APIs , viewing response headers, and making HTTP requests.
+
+In this article, we’re going to explain how to use cURL to make POST requests. The HTTP POST method is used to send data to the remote server.

@@ -1,0 +1,15 @@
+In this post, we will learn how to create REST API with Spring Boot, JPA, Hibernate, and MySQL.
+
+Create the Spring Boot Project.
+
+Define Database configurations.
+
+Create an Entity Class.
+
+Create JPA Data Repository layer.
+
+Create Rest Controllers and map API requests.
+
+Create Unit Testing for API requests and run the unit testing.
+
+Build and run the Project.

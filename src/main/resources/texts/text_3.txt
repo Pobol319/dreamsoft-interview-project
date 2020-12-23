@@ -1,0 +1,3 @@
+I'm trying to send file on server using Retrofit2.
+
+I do everything according documentation, but always get 400 server error.
