@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,7 +30,7 @@ public class SearchHistoryServiceImpl implements SearchHistoryService {
 
     @Override
     public void save(SearchHistory searchHistory) {
-        searchHistory.setDate(new Date());
+        searchHistory.setDate(LocalDateTime.now());
         repository.save(searchHistory);
     }
 

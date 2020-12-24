@@ -1,10 +1,7 @@
 package by.dreamsoft.interviewproject.model;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -22,9 +19,8 @@ public class SearchHistory {
     @Column(name = "search_word", nullable = false)
     private String searchWord;
 
-    @JsonIgnore
     @Column(name = "date", nullable = false)
-    private Date date;
+    private LocalDateTime date;
 
     public Integer getId() {
         return id;
@@ -50,11 +46,11 @@ public class SearchHistory {
         this.searchWord = searchWord;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
