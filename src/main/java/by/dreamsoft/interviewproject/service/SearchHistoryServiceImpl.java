@@ -1,7 +1,7 @@
 package by.dreamsoft.interviewproject.service;
 
-import by.dreamsoft.interviewproject.comparator.SearchHistoryComparator;
 import by.dreamsoft.interviewproject.model.SearchHistory;
+import by.dreamsoft.interviewproject.model.SearchHistoryDto;
 import by.dreamsoft.interviewproject.repository.SearchHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,8 +11,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 @Service
 @Transactional
@@ -24,18 +26,20 @@ public class SearchHistoryServiceImpl implements SearchHistoryService {
     @Override
     public List<SearchHistory> getAllOrderedByDate() {
         List<SearchHistory> searchHistoryList = repository.findAll();
-        searchHistoryList.sort(new SearchHistoryComparator());
+        searchHistoryList.sort(Comparator.comparing(SearchHistory::getDate));
         return searchHistoryList;
     }
 
     @Override
     public void save(SearchHistory searchHistory) {
-        searchHistory.setDate(LocalDateTime.now());
         repository.save(searchHistory);
     }
 
     @Override
-    public List<String> getAllRowsWithWord(SearchHistory searchHistory) throws IOException {
+    public List<String> getAllRowsWithWord(SearchHistoryDto searchHistoryDto) throws IOException {
+        SearchHistory searchHistory = new SearchHistory(searchHistoryDto.getFilePath(), searchHistoryDto.getSearchWord(), LocalDateTime.now());
+        save(searchHistory);
+
         String file = searchHistory.getFilePath();
         String word = searchHistory.getSearchWord();
 

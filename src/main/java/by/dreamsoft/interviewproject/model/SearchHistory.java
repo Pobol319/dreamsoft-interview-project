@@ -22,6 +22,15 @@ public class SearchHistory {
     @Column(name = "date", nullable = false)
     private LocalDateTime date;
 
+    public SearchHistory() {
+    }
+
+    public SearchHistory(String filePath, String searchWord, LocalDateTime date) {
+        this.filePath = filePath;
+        this.searchWord = searchWord;
+        this.date = date;
+    }
+
     public Integer getId() {
         return id;
     }
